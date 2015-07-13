@@ -1,9 +1,6 @@
 #!/bin/bash
 set -e 
 
-export GIT_COMMITTER_EMAIL=szak.pal@gmail.com
-export GIT_COMMITTER_NAME=PalSzak
-
 git checkout -b master
 
 git merge "$TRAVIS_COMMIT"
