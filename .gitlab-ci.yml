@@ -1,3 +1,2 @@
 before_script:
-  go
-  
+  - go
