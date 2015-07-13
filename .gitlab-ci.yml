@@ -1,2 +1,5 @@
 before_script:
   - go
+
+jobs:
+  - script: “go test”
