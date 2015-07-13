@@ -1,5 +1,5 @@
 {
-	"ImportPath": "gitlab.com/DOHW/dummy-go-lib",
+	"ImportPath": "github.com/DO-HW/dummy-go-lib",
 	"GoVersion": "go1.4.2",
 	"Deps": [
 		{
