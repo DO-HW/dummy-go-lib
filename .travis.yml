@@ -8,7 +8,7 @@ env:
 
 install:
   - go get github.com/tools/godep
-  - go install ./...
+  - godep restore
 
 script:
   - go test
