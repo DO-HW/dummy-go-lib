@@ -1,8 +1,6 @@
 #!/bin/bash
 set -e 
 
-exit 1;
-
 if [ "$TRAVIS_BRANCH" == "master" ]; then 
     exit 0;
 fi
