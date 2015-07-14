@@ -16,4 +16,5 @@ install:
 script:
   - go test
 
-after_success: ./release.sh
+deploy:
+  - ./release.sh
