@@ -14,7 +14,6 @@ install:
   - godep restore
 
 script:
-  - go test
+  - go test -v -cover
 
-deploy:
-  - ./release.sh
+after_success: ./release.sh
