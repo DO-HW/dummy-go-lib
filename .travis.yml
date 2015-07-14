@@ -22,3 +22,6 @@ script:
   - $HOME/gopath/bin/goveralls -service=travis-ci
 
 after_success: ./release.sh
+
+notifications:
+  slack: 'do-hw'
