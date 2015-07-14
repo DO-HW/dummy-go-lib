@@ -1,27 +1,21 @@
 language: go
-
 go:
-  - 1.4.2
-
-env: 
+- 1.4.2
+env:
   global:
   - GH_REF: github.com/DO-HW/dummy-go-lib.git
-  - secure: "tHUCoUtRJvkjoQINI9OAJd3lYAhTuX/Sw8F+VacB+N7WcBuX6cHBh7Pd9mBbp2Nl5p2ZT/cg8q/gaIdIu1rCTYmq5fPw2oXMMfxBdp42c3DC4IjPorLM9DZoEeSAPLSxM1nN9/mroo27CDDbGoTVHjhA3Wd3LmKtWAwMrBmIei+t8deOuXmb1WfNi7GfNRAm8ugjcBtLm5t1+pWYgUUchxuIwW4LKMzh61JnfHt9Ed8OJVwfNXt+UojYy5agE2LJbUFSAKet7WH5gGtCRFEde3nsLCtqgMwOsa1HQ3WwMMUXsjk5uZWHC8ldJ75ANEVz9oHEPj7ooa6qaE2GOw0FWMJ9HHREVd4NLvFE1b/9YR6avYDezOjQyBbkgX/TS9QBG/Swzd8VWIrw/aP8p6OnxauLUzI5ndlA5Z6DzDSXC2Nnkumt3PI0hXkrP3L/mlvzpifvbAKWu41y/GTX7VGh2RlbOqt8Wm6wAy6/vhLMWnVeqvXEz05PX/BsDx9Dc0YU5eaHgwMy5cz6fNfaN7M3nQ6JsA5LCauRadcvtoX0OSN4RNFaj1tK6LxET282aHkjyCdJKnNvc22ls6o6ZTKf6MVH+Fez1hEcyEMh2cCDeOdApvE8+N4SOTz+CFpqDuPaLE941RYrSSTrQvwpwF4AfGeRdgKcU9dw+ZI6jJmiRhs="
+  - secure: tHUCoUtRJvkjoQINI9OAJd3lYAhTuX/Sw8F+VacB+N7WcBuX6cHBh7Pd9mBbp2Nl5p2ZT/cg8q/gaIdIu1rCTYmq5fPw2oXMMfxBdp42c3DC4IjPorLM9DZoEeSAPLSxM1nN9/mroo27CDDbGoTVHjhA3Wd3LmKtWAwMrBmIei+t8deOuXmb1WfNi7GfNRAm8ugjcBtLm5t1+pWYgUUchxuIwW4LKMzh61JnfHt9Ed8OJVwfNXt+UojYy5agE2LJbUFSAKet7WH5gGtCRFEde3nsLCtqgMwOsa1HQ3WwMMUXsjk5uZWHC8ldJ75ANEVz9oHEPj7ooa6qaE2GOw0FWMJ9HHREVd4NLvFE1b/9YR6avYDezOjQyBbkgX/TS9QBG/Swzd8VWIrw/aP8p6OnxauLUzI5ndlA5Z6DzDSXC2Nnkumt3PI0hXkrP3L/mlvzpifvbAKWu41y/GTX7VGh2RlbOqt8Wm6wAy6/vhLMWnVeqvXEz05PX/BsDx9Dc0YU5eaHgwMy5cz6fNfaN7M3nQ6JsA5LCauRadcvtoX0OSN4RNFaj1tK6LxET282aHkjyCdJKnNvc22ls6o6ZTKf6MVH+Fez1hEcyEMh2cCDeOdApvE8+N4SOTz+CFpqDuPaLE941RYrSSTrQvwpwF4AfGeRdgKcU9dw+ZI6jJmiRhs=
   - PATH=/home/travis/gopath/bin:$PATH
-
 before_install:
-  - go get github.com/axw/gocov/gocov
-  - go get github.com/mattn/goveralls
-  - if ! go get code.google.com/p/go.tools/cmd/cover; then go get golang.org/x/tools/cmd/cover; fi
-
+- go get github.com/axw/gocov/gocov
+- go get github.com/mattn/goveralls
+- if ! go get code.google.com/p/go.tools/cmd/cover; then go get golang.org/x/tools/cmd/cover;fi
 install:
-  - go get github.com/tools/godep
-  - godep restore
-
+- go get github.com/tools/godep
+- godep restore
 script:
-  - $HOME/gopath/bin/goveralls -service=travis-ci
-
-after_success: ./release.sh
-
+- "$HOME/gopath/bin/goveralls -service=travis-ci"
+after_success: "./release.sh"
 notifications:
-  slack: 'do-hw'
+  slack:
+    secure: lzR0sRBNGFEHVeWJTy5lH/KyGeONKBimuslBQ26I3BLYzYImbKB8y+Oq9PSRLcd1jR42twGUfH4HxCRS+ecXWa6DNGDDLtgpaxojnjSuk/BiCE7QJwgKy43qTl6wH8p0e0QerBDfExqXVwQNxPY07XQipkLVVwU5kHFaYnJYHkHwQn6/1e/xy/16wESCm08FHLHeJPnIzBGgrmHvdbXhl8zWHb9IyMGsMsKoWmLrHV6sKOIOeTMN5mKlf1T0E7wNwAOLHu+yYZmxErGDydDWoDq9IEJykD5aoO0E6r45o3kEmxTqCh56jPB+WznuAqpUdnZGdFrA+w06vKITBnj8JDn7BVqiLuVnzHiFJUyJkT5nuXuaLNwNgJPkp45L0SnIihueqtzXFJ/fgIshVq0F6QwMAQ6HBlYtbBzqx0vWg4rMRoyqGYv4cSPYjfFuFAImibGqV9nQItQRy31NQlel+uKCVMNOXWbo6l8aCXH/bPcrxGDqM3N7TsvMYSPSSAtp5/oil408JD9lEdzt73g3K5SNIKDJuY7Wr1ulLxsvgVTQem1W6jWrmVt9HT5VV9jQqhNo3IRXYGzoc0BF0tLOMhFF7IMO97eX36ZtGecRkWlT+qTsgGsBqE49LuKaTixItX42xSHO4aWtwFrLpaJXCL4iR7NNeQ4PyvdfJ7td588=
